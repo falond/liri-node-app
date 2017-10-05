@@ -34,8 +34,11 @@ var m ="";
 			    spotify(txt[1]);
 
 			  });
-		
+
 			}
+
+			//I cant figure out how to make a callback for this and it still work. 
+			//(Calling an asynchronous function without callback is deprecated.)
 
 //****************************switch case**************************************************
 		switch(command){
@@ -66,6 +69,7 @@ var m ="";
 		    } else{
 		      doWhat("error");
 		    }
+		    
 		  break;
 		}
 
@@ -124,11 +128,11 @@ var m ="";
 		        console.log("-----------------------");
 
 		         //adds text to log.txt
-		        fs.appendFile('log.txt', songsInfo.artists[0].name);
-		        fs.appendFile('log.txt', songsInfo.name);
-		        fs.appendFile('log.txt', songsInfo.preview_url);
-		        fs.appendFile('log.txt', songsInfo.album.name);
-		        fs.appendFile('log.txt', "\n---------------------------------------------------------------------------------------------------------------------------\n");
+		        fs.appendFileSync('log.txt', songsInfo.artists[0].name);
+		        fs.appendFileSync('log.txt', songsInfo.name);
+		        fs.appendFileSync('log.txt', songsInfo.preview_url);
+		        fs.appendFileSync('log.txt', songsInfo.album.name);
+		        fs.appendFileSync('log.txt', "\n---------------------------------------------------------------------------------------------------------------------------\n");
 		  }
 		  
 
@@ -163,7 +167,7 @@ var m ="";
 		      fs.appendFileSync('log.txt', "\nPlot: " + body.Plot);
 		      fs.appendFileSync('log.txt', "\nActors: " + body.Actors);
 		      fs.appendFileSync('log.txt', "\n---------------------------------------------------------------------------------------------------------------------------\n");
-		    }
+		    
 		    
 		    if(error) throw error;
 		    if(movie === "Mr. Nobody"){
@@ -174,6 +178,7 @@ var m ="";
 		      fs.appendFileSync('log.txt', "-----------------------");
 		      fs.appendFileSync('log.txt', "If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
 		      fs.appendFileSync('log.txt', "It's on Netflix!");
+		  }
     }
   });
 }
