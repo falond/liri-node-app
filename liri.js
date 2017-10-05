@@ -18,7 +18,7 @@ var m ="";
 		//for loop for input string
 		for (var i=3; i<inputString.length; i++){
 		  if(i>3 && i<inputString.length){
-		    m = m + "+" + inputString[i];
+		    m = m + ""+"" + inputString[i];
 		  } else{
 		    m = m + inputString[i];
 
@@ -37,7 +37,7 @@ var m ="";
 
 			}
 
-			//I cant figure out how to make a callback for this and it still work. 
+			//I cant figure out how to make a callback for this and it still work without error below. 
 			//(Calling an asynchronous function without callback is deprecated.)
 
 //****************************switch case**************************************************
@@ -59,7 +59,7 @@ var m ="";
 		    if(m){
 		      omdb(m);
 		    } else{
-		      omdb("Mr. Nobody");
+		      omdb("Mr. Nobody");//not working
 		    }
 		  break;
 
@@ -68,8 +68,7 @@ var m ="";
 		      doWhat(m);
 		    } else{
 		      doWhat("error");
-		    }
-		    
+		    }	    
 		  break;
 		}
 
@@ -90,6 +89,7 @@ var m ="";
 		  for (var i = 0; i < tweets.length; i++){
 		  //display date and tweet
 		     console.log("----------------------------------------------------------------------------");
+		     console.log("\nName: " + "Deslesno");
 		     console.log("\nDate and Time: " + tweets[i].created_at);
 		     console.log("\nTweet: " + tweets[i].text);
 
@@ -127,7 +127,7 @@ var m ="";
 		        console.log("Album: " + songsInfo.album.name);
 		        console.log("-----------------------");
 
-		         //adds text to log.txt
+		         //Append to log.txt file
 		        fs.appendFileSync('log.txt', songsInfo.artists[0].name);
 		        fs.appendFileSync('log.txt', songsInfo.name);
 		        fs.appendFileSync('log.txt', songsInfo.preview_url);
@@ -157,7 +157,7 @@ var m ="";
 		      console.log("Actors: " + body.Actors);
 		      
 		     
-		      //adds text to log.txt
+		      //Append to log.txt file
 		      fs.appendFileSync('log.txt', "\nTitle: " + body.Title);
 		      fs.appendFileSync('log.txt', "\nYear Released: " + body.Year);
 		      fs.appendFileSync('log.txt', "\nIMDB Rating of Movie: " + body.imdbRating);
@@ -170,11 +170,12 @@ var m ="";
 		    
 		    
 		    if(error) throw error;
+		    //this is not working, I cant get it to display the console log below
 		    if(movie === "Mr. Nobody"){
 		      console.log("-----------------------");
 		      console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
 		      console.log("It's on Netflix!");
-		      //adds text to log.txt
+		      //Append to log.txt file
 		      fs.appendFileSync('log.txt', "-----------------------");
 		      fs.appendFileSync('log.txt', "If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
 		      fs.appendFileSync('log.txt', "It's on Netflix!");
