@@ -37,8 +37,8 @@ var m ="";
 
 			}
 
-			//I cant figure out how to make a callback for this and it still work without error below. 
-			//(Calling an asynchronous function without callback is deprecated.)
+			doWhat();
+
 
 //****************************switch case**************************************************
 		switch(command){
